@@ -211,6 +211,8 @@ return [
      |
      | By default DebugBar routes are included in Artisan's route:list command.
      | Enable this option to hide them.
+     |
+     | This doesn't affect Lumen, since it doesn't have the 'artisan route:list' command
      */
     'hide_routes' => false,
 
