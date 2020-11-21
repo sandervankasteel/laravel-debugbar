@@ -58,7 +58,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             }
         );
 
-        $this->commands(['command.debugbar.clear', 'command.route.list']);
+        $this->commands(['command.debugbar.clear']);
+
+        // Only add 'command.route.list', when it can be resolved from the container
+        if($this->app->resolved('command.route.list')) {
+            $this->commands(['command.route.list']);
+        }
 
         Collection::macro('debug', function () {
             debug($this);
