@@ -78,7 +78,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $this->registerMiddleware(InjectDebugbar::class);
 
-        // Only extend the 'command.route.list', when we can find it in the container (ie. when we aren't using Lumen)
+        // Only extend the 'command.route.list', when we can find it in the container (ie. when we aren't using Lumen).
         if($this->app->resolved('command.route.list')) {
             $this->app->extend('command.route.list', function () {
                 return new Console\RouteListCommand($this->getRouter());
